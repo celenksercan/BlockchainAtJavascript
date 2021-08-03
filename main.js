@@ -101,14 +101,9 @@ console.log('\n Starting the miner...');
 Bakor.minePendingTransactions('miner-sercan');
 console.log('\nBalance of sercan is', Bakor.getBalanceOfAddress('miner-sercan'));
 
-
-console.log('\n Again starting the miner...');
-
+console.log('\n Again start the mining....')
 Bakor.minePendingTransactions('miner-sercan');
-console.log('\nBalance of sercan is', Bakor.getBalanceOfAddress('miner-sercan'));
-
-Bakor.minePendingTransactions('miner-sercan');
-console.log('\nBalance of sercan is', Bakor.getBalanceOfAddress('miner-sercan'));
+console.log('\nBalance of mert is', Bakor.getBalanceOfAddress('miner-sercan'));
 //
 
 
