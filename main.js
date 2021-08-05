@@ -6,19 +6,18 @@ const myKey=ec.keyFromPrivate('c3d3e71dc23e73e0a65657fb03e153738e8bbce5dc5e15e62
 const myWalletAddress=myKey.getPublic('hex');
 
 let Bakor=new Blockchain();
-Bakor.createTransaction(new Transaction('address1','address2',100));
-Bakor.createTransaction(new Transaction('address2','address1',500));
-Bakor.createTransaction(new Transaction('address3','address4',500));
+
+
+const tx1=new Transaction(myWalletAddress, 'publicKey goes here', 10);
+tx1.signTransaction(myKey);
+Bakor.addTransaction(tx1);
 
 
 console.log('\n Starting the miner...');
-Bakor.minePendingTransactions('miner-sercan');
-console.log('\nBalance of sercan is', Bakor.getBalanceOfAddress('miner-sercan'));
+Bakor.minePendingTransactions(myWalletAddress);
 
-console.log('\n Again start the mining....')
-Bakor.minePendingTransactions('miner-sercan');
-console.log('\nBalance of sercan is', Bakor.getBalanceOfAddress('miner-sercan'));
-//
+console.log('\nBalance of sercan is', Bakor.getBalanceOfAddress(myWalletAddress));
+
 
 
 
