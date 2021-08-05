@@ -1,3 +1,5 @@
+const {Blockchain, Transaction}=require('./blockchain');
+
 
 let Bakor=new Blockchain();
 Bakor.createTransaction(new Transaction('address1','address2',100));
