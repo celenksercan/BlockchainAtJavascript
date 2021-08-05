@@ -1,4 +1,7 @@
 const SHA256=require('crypto-js/sha256');
+const EC=require('elliptic').ec;
+const ec=new EC('secp256k1');
+
 
 class Transaction{
     constructor(fromAddress, toAddress, amount){
@@ -24,9 +27,11 @@ class Transaction{
         if(!this.signature || this.signature.length===0){
             throw new Error("No signature in this transaction");
         }
-    }
-
+        const publicKey=ec.keyFromPublic(this.fromAddress,'hex');
+        return publicKey.verify(this.calculateHash(), this.signature);
 }
+            }
+        
 class Block{
 
     constructor( timestamp, transaction, previousHash=''){
