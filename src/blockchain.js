@@ -90,7 +90,15 @@ class Blockchain{
         ];
     }
 
-    createTransaction(transaction){
+    addTransaction(transaction){
+        if(!transaction.fromAddress || transaction.toAddress){
+            throw new Error('Transaction must be include from and to address');
+        }
+
+        if(!transaction.isValid()){
+            throw new Error('Cannot add invalid transaction to chain');
+
+        }
         this.pendingTransactions.push(transaction);
     }
     getBalanceOfAddress(address){
