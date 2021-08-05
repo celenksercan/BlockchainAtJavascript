@@ -91,7 +91,7 @@ class Blockchain{
     }
 
     addTransaction(transaction){
-        if(!transaction.fromAddress || transaction.toAddress){
+        if(!transaction.fromAddress || !transaction.toAddress){
             throw new Error('Transaction must be include from and to address');
         }
 
@@ -137,5 +137,5 @@ class Blockchain{
 }
 
 
-module.exports.Blockchain=Blockhain;
+module.exports.Blockchain=Blockchain;
 module.exports.Transaction=Transaction;
