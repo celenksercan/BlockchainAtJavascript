@@ -139,3 +139,5 @@ class Blockchain{
 
 module.exports.Blockchain=Blockchain;
 module.exports.Transaction=Transaction;
+
+//modul tanimi
