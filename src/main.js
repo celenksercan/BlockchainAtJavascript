@@ -16,7 +16,7 @@ Bakor.addTransaction(tx1);
 console.log('\n Starting the miner...');
 Bakor.minePendingTransactions(myWalletAddress);
 
-console.log('\nBalance of sercan is', Bakor.getBalanceOfAddress(myWalletAddress));
+console.log('\nBalance of sercanWallet is', Bakor.getBalanceOfAddress(myWalletAddress));
 
 
 
