@@ -92,3 +92,8 @@ describe('Transaction class', function() {
       txObject = createSignedTx();
       assert(txObject.isValid());
     });
+     
+      it('should fail when signature is empty string', function() {
+      txObject.signature = '';
+      assert.throws(() => { txObject.isValid(); }, Error);
+    });
