@@ -53,3 +53,9 @@ describe('Transaction class', function() {
       );
     });
   });
+
+  
+   describe('isValid', function() {
+    it('should throw error without signature', function() {
+      assert.throws(() => { txObject.isValid(); }, Error);
+    });
