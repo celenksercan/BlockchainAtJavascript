@@ -59,3 +59,14 @@ describe('Transaction class', function() {
     it('should throw error without signature', function() {
       assert.throws(() => { txObject.isValid(); }, Error);
     });
+
+      it('should correctly sign transactions', function() {
+      txObject = createSignedTx();
+
+      assert.strict.equal(
+        txObject.signature,
+        '3044022023fb1d818a0888f7563e1a3ccdd68b28e23070d6c0c1c5' +
+'004721ee1013f1d769022037da026cda35f95ef1ee5ced5b9f7d70' +
+'e102fcf841e6240950c61e8f9b6ef9f8'
+      );
+    });
