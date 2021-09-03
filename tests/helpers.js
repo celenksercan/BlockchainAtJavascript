@@ -31,3 +31,8 @@ function createBlockchainWithTx() {
 
   return blockchain;
 }
+
+module.exports.signingKey = signingKey;
+module.exports.createSignedTx = createSignedTx;
+module.exports.createBlockchainWithTx = createBlockchainWithTx;
+module.exports.createBCWithMined = createBCWithMined;
