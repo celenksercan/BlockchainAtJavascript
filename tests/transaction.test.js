@@ -97,3 +97,10 @@ describe('Transaction class', function() {
       txObject.signature = '';
       assert.throws(() => { txObject.isValid(); }, Error);
     });
+     
+      it('should return true for mining rewards', function() {
+      txObject.fromAddress = null;
+      assert(txObject.isValid());
+    });
+  });
+});
