@@ -40,3 +40,16 @@ describe('Transaction class', function() {
         '21894bb7b0e56aab9eb48d4402d94628a9a179bc277542a5703f417900275153'
       );
     });
+
+       it('should change when we tamper with the tx', function() {
+      txObject = new Transaction('a1', 'b1', 10);
+
+      const originalHash = txObject.calculateHash();
+      txObject.amount = 100;
+
+      assert.strict.notEqual(
+        txObject.calculateHash(),
+        originalHash
+      );
+    });
+  });
