@@ -10,3 +10,10 @@ function createSignedTx(amount = 10) {
 
   return txObject;
 }
+
+function createBCWithMined() {
+  const blockchain = new Blockchain();
+  blockchain.minePendingTransactions(signingKey.getPublic('hex'));
+
+  return blockchain;
+}
