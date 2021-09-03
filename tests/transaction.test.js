@@ -79,3 +79,11 @@ describe('Transaction class', function() {
         txObject.signTransaction(signingKey);
       }, Error);
     });
+     
+      it('should detect badly signed transactions', function() {
+      txObject = createSignedTx();
+
+      // Tamper with it & it should be invalid!
+      txObject.amount = 100;
+      assert(!txObject.isValid());
+    });
