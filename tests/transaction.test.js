@@ -87,3 +87,8 @@ describe('Transaction class', function() {
       txObject.amount = 100;
       assert(!txObject.isValid());
     });
+
+       it('should return true with correctly signed tx', function() {
+      txObject = createSignedTx();
+      assert(txObject.isValid());
+    });
