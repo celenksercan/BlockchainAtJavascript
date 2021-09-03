@@ -17,3 +17,17 @@ function createBCWithMined() {
 
   return blockchain;
 }
+
+function createBlockchainWithTx() {
+  const blockchain = new Blockchain();
+  blockchain.minePendingTransactions(signingKey.getPublic('hex'));
+
+  const validTx = new Transaction(signingKey.getPublic('hex'), 'b2', 10);
+  validTx.signTransaction(signingKey);
+
+  blockchain.addTransaction(validTx);
+  blockchain.addTransaction(validTx);
+  blockchain.minePendingTransactions(1);
+
+  return blockchain;
+}
