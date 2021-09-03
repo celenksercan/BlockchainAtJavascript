@@ -70,3 +70,12 @@ describe('Transaction class', function() {
 'e102fcf841e6240950c61e8f9b6ef9f8'
       );
     });
+     
+     it('should not sign transactions for other wallets', function() {
+      txObject = new Transaction('not a correct wallet key', 'wallet2', 10);
+      txObject.timestamp = 1;
+
+      assert.throws(() => {
+        txObject.signTransaction(signingKey);
+      }, Error);
+    });
